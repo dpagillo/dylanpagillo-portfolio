@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Dylan Pagillo — Design Engineer & Front-end Engineer. Hybrid UX designer and software developer with 5+ years building enterprise products at Cisco.">
+<title>Dylan Pagillo — Design Engineer & Front-end Engineer</title>
+<style>
+:root {
+  --bg: #fbfaf7;
+  --surface: #ffffff;
+  --ink: #161613;
+  --ink-2: #4a4a44;
+  --ink-3: #82817a;
+  --line: #e8e5dc;
+  --accent: #d04a1f;
+  --max: 680px;
+  --max-wide: 880px;
+  color-scheme: light;
+}
+
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", system-ui, sans-serif;
+  font-size: 17px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.serif { font-family: "Iowan Old Style", "Charter", "Georgia", "Cambria", serif; }
+
+a { color: var(--ink); text-decoration: none; border-bottom: 1px solid var(--line); transition: border-color 0.15s, color 0.15s; }
+a:hover { color: var(--accent); border-color: var(--accent); }
+
+.container { max-width: var(--max); margin: 0 auto; padding: 0 24px; }
+.container-wide { max-width: var(--max-wide); margin: 0 auto; padding: 0 24px; }
+
+/* Header */
+nav {
+  padding: 28px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 14px;
+  border-bottom: 1px solid var(--line);
+  margin-bottom: 64px;
+}
+nav .name { font-weight: 600; border: none; }
+nav .links { display: flex; gap: 22px; }
+nav .links a { color: var(--ink-2); border: none; }
+nav .links a:hover { color: var(--accent); }
+
+/* Hero */
+.hero {
+  margin-bottom: 96px;
+}
+.hero h1 {
+  font-size: 38px;
+  line-height: 1.18;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  margin: 0 0 24px;
+  max-width: 580px;
+}
+.hero h1 em { font-style: italic; font-family: "Iowan Old Style", "Charter", "Georgia", serif; color: var(--accent); }
+.hero p {
+  font-size: 18px;
+  color: var(--ink-2);
+  max-width: 560px;
+  margin: 0 0 18px;
+}
+.status {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 5px 12px 5px 10px;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  font-size: 13px;
+  color: var(--ink-2);
+  margin-top: 12px;
+}
+.status .dot {
+  width: 8px;
+  height: 8px;
+  background: #16a34a;
+  border-radius: 50%;
+  box-shadow: 0 0 0 3px rgba(22, 163, 74, 0.18);
+}
+
+/* Sections */
+section { margin-bottom: 96px; }
+.section-label {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--ink-3);
+  font-weight: 500;
+  margin-bottom: 28px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.section-label::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--line);
+}
+
+/* Case studies */
+.case {
+  border-top: 1px solid var(--line);
+  padding: 36px 0;
+}
+.case:first-of-type { border-top: none; padding-top: 8px; }
+.case-image {
+  margin: 0 0 24px;
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  background: var(--surface);
+  position: relative;
+}
+.case-image img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 480px;
+  object-fit: cover;
+  object-position: top center;
+}
+.case-image .caption {
+  position: absolute;
+  bottom: 10px;
+  left: 12px;
+  background: rgba(22, 22, 19, 0.78);
+  color: #fff;
+  font-size: 11px;
+  padding: 3px 8px;
+  border-radius: 4px;
+  letter-spacing: 0.02em;
+}
+.case-meta {
+  display: flex;
+  gap: 16px;
+  font-size: 13px;
+  color: var(--ink-3);
+  margin-bottom: 12px;
+  flex-wrap: wrap;
+}
+.case-meta span { white-space: nowrap; }
+.case h3 {
+  font-size: 26px;
+  line-height: 1.25;
+  font-weight: 500;
+  letter-spacing: -0.015em;
+  margin: 0 0 16px;
+}
+.case-body { color: var(--ink-2); }
+.case-body p { margin: 0 0 14px; }
+.case-body strong { color: var(--ink); font-weight: 600; }
+.case-footer {
+  margin-top: 20px;
+  font-size: 14px;
+  color: var(--ink-3);
+}
+.case-footer .key { color: var(--ink); font-weight: 500; }
+
+/* About */
+.about p {
+  font-size: 17px;
+  color: var(--ink-2);
+  margin: 0 0 16px;
+}
+.skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 24px;
+}
+.skill {
+  font-size: 13px;
+  padding: 4px 11px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--surface);
+  color: var(--ink-2);
+}
+
+/* Contact */
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+}
+.contact-item {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 18px 20px;
+}
+.contact-item .label { font-size: 12px; color: var(--ink-3); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 6px; }
+.contact-item a { font-weight: 500; border: none; }
+
+footer {
+  padding: 40px 0 56px;
+  border-top: 1px solid var(--line);
+  font-size: 13px;
+  color: var(--ink-3);
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+@media (max-width: 600px) {
+  .hero h1 { font-size: 30px; }
+  nav .links { gap: 16px; }
+  section { margin-bottom: 72px; }
+  .hero { margin-bottom: 72px; }
+}
+</style>
+</head>
+<body>
+
+<div class="container-wide">
+  <nav>
+    <a href="#" class="name">Dylan Pagillo</a>
+    <div class="links">
+      <a href="#work">Work</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
+</div>
+
+<div class="container">
+
+  <header class="hero">
+    <h1>Designer and engineer building <em>products that feel inevitable</em> — across the full stack, from research to React.</h1>
+    <p>Five years at Cisco leading UX for internal cloud platforms used by thousands of engineers across hundreds of business applications. Comfortable in Figma and in code, in research and in production.</p>
+    <div class="status"><span class="dot"></span> Open to Design Engineer & Front-end Engineer roles</div>
+  </header>
+
+  <section id="work">
+    <div class="section-label">Selected work</div>
+
+    <!-- =============================================== -->
+    <!-- CASE STUDY 1 — RunOn Managed Service (Cisco) -->
+    <!-- =============================================== -->
+    <article class="case">
+      <!-- IMAGE SLOT: uncomment and update filename when you have a visual (abstracted/redrawn, not real Cisco UI)
+      <div class="case-image">
+        <img src="images/cisco-cloud.png" alt="Cisco cloud platforms — abstracted system view">
+        <div class="caption">Abstracted system view · redrawn for portfolio</div>
+      </div>
+      -->
+      <div class="case-meta">
+        <span>Cisco · 2022–2026</span>
+        <span>Lead UX + Full-stack</span>
+        <span>Enterprise Cloud</span>
+      </div>
+      <h3>Cisco's internal cloud platforms — leading UX across maturity stages</h3>
+      <div class="case-body">
+        <p><strong>Context.</strong> I was the lead designer on two of Cisco's internal cloud-management platforms: <strong>RunOn Managed Service (RMS)</strong>, a mature platform broadly deployed across the company, and <strong>Control Plane Platform (CPP)</strong>, its newer, faster-growing counterpart. My work spanned research, Figma prototyping, React implementation, and ongoing support — partnered with PMs, engineers, and two designers I guided, including collaboration with design and engineering counterparts in India and China.</p>
+        <p><strong>Scale.</strong> RMS manages tens of thousands of compute and storage resources (VMs, storage, AWS accounts) across hundreds of business applications, handling tens of thousands of resource requests from thousands of distinct users every quarter. CPP is earlier in its lifecycle but already serving thousands of quarterly users — a signal it's finding adoption fast.</p>
+        <p><strong>The design problem I cared about most.</strong> Two products in the same domain at very different maturity stages. RMS users had deep muscle memory and high tolerance for complexity; CPP users were new and needed onboarding that didn't bury them. The job was to maintain enough consistency that the platforms felt like one ecosystem, while letting each speak to its own audience.</p>
+        <p><strong>A representative project: the Platform Selection experience.</strong> The pivotal feature for both products is where users — software engineers and system administrators — choose the underlying cloud platform for their infrastructure (AWS, GCP, and others). It demanded a careful balance between simplicity and comprehensiveness: enough information for an informed decision, not so much that users got buried. I designed a card-based grid layout where each card carried the essentials — provider logo, tags, a short description, and a link to documentation — and nothing more. The grid prevents information overload and supports quick scanning, while the per-card detail link gives power users a deeper path when they need it.</p>
+        <p><strong>Outcome.</strong> Usability testing affirmed the design's intuitiveness and efficiency, and the pattern became part of the platforms' broader design language. More broadly, both products continue to serve thousands of engineers across Cisco — and the design system I helped shape is the substrate they're built on.</p>
+      </div>
+      <div class="case-footer">
+        <span class="key">Stack:</span> React · Go · Python · Figma &nbsp;·&nbsp; <span class="key">Role:</span> Lead designer across both products · guided 2 designers · cross-functional with PMs, engineering, and global teams · shipped production code
+      </div>
+    </article>
+
+    <!-- =============================================== -->
+    <!-- CASE STUDY 2 — CData B2B Website -->
+    <!-- =============================================== -->
+    <article class="case">
+      <!-- IMAGE SLOT: uncomment when you drop in the CData screenshot
+      <div class="case-image">
+        <img src="images/cdata.png" alt="CData Software website — designed and built by Dylan Pagillo">
+      </div>
+      -->
+      <div class="case-meta">
+        <span>CData Software · 2019–2021</span>
+        <span>Front-end + UI Design</span>
+        <span>B2B SaaS</span>
+      </div>
+      <h3>CData — making a catalog of 100+ data sources legible</h3>
+      <div class="case-body">
+        <p><strong>Context.</strong> CData sells a portfolio of enterprise data connectivity products. I owned design and front-end implementation for much of the marketing site and worked directly with the product team on UI for multiple connectivity platform applications.</p>
+        <p><strong>Problem.</strong> CData's "Drivers" surface had to present over 100 diverse data sources — social platforms, database systems, file formats — across platforms like ADO.net. The default approach (long lists, undifferentiated entries) buried users in choice and forced cognitive load onto people who just wanted to find the connector they needed.</p>
+        <p><strong>Approach.</strong> I designed a user-centric grid layout that displayed each data source with just enough detail to recognize it, paired with interactive "pill" filters for categorization. Filter interactions were powered by relational database updates on the back end and smoothed in the front end with lightweight JavaScript animations, so the experience felt responsive without being noisy. The whole pattern was modular by design — easy for the team to extend as new connectors were added.</p>
+        <p><strong>Outcome.</strong> The design became a cornerstone of the CData site and is still in use, influencing purchasing decisions by making the catalog navigable rather than overwhelming. It's the kind of work I'm proudest of: a small interface that quietly does a lot of work for the user.</p>
+      </div>
+      <div class="case-footer">
+        <span class="key">Stack:</span> HTML5 · CSS3 · JavaScript · SASS · Bootstrap &nbsp;·&nbsp; <span class="key">Role:</span> Designed and coded most of the site
+      </div>
+    </article>
+
+  </section>
+
+  <section id="about" class="about">
+    <div class="section-label">About</div>
+    <p>I work at the boundary between design and engineering. At Cisco I led UX for enterprise products, but I was also in the codebase every week — building components in React, shipping back-end fixes in Go and Python, integrating Figma → front end → back end into one continuous workflow.</p>
+    <p>My path into this work started with music. Years of playing taught me the things that show up in good interfaces too — patience, precision, taste, and the willingness to keep rewriting until it lands. I picked up the technical fundamentals through a B.S. in Information Technology at SUNY Empire State and an M.S. in Information Design & Technology at SUNY Polytechnic, and I've been refining the craft on real products ever since.</p>
+    <p>I'm interested in roles that don't force me to pick a lane — Design Engineer roles at companies like Linear, Vercel, Stripe, Ramp, and Retool, or senior front-end roles at teams where design quality matters as much as code quality.</p>
+    <p>Outside of work: guitar, comics, and time with family. I've also been a volunteer front-end developer with <a href="https://www.techforcampaigns.org/" target="_blank" rel="noopener">Tech for Campaigns</a> since 2020, building websites for political campaigns.</p>
+    <div class="skills">
+      <span class="skill">React</span>
+      <span class="skill">Angular</span>
+      <span class="skill">TypeScript / JavaScript</span>
+      <span class="skill">Go</span>
+      <span class="skill">Python · Django</span>
+      <span class="skill">Figma</span>
+      <span class="skill">CSS / SCSS</span>
+      <span class="skill">Design systems</span>
+      <span class="skill">Interaction design</span>
+      <span class="skill">AI tooling</span>
+      <span class="skill">Agile</span>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="section-label">Get in touch</div>
+    <div class="contact-grid">
+      <div class="contact-item">
+        <div class="label">Email</div>
+        <a href="mailto:dylanworkingonthings@gmail.com">dylanworkingonthings@gmail.com</a>
+      </div>
+      <div class="contact-item">
+        <div class="label">LinkedIn</div>
+        <a href="https://www.linkedin.com/in/dylanpagillo/" target="_blank" rel="noopener">linkedin.com/in/dylanpagillo</a>
+      </div>
+      <div class="contact-item">
+        <div class="label">Resume</div>
+        <a href="resume.pdf">Download PDF</a>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<div class="container-wide">
+  <footer>
+    <div>© Dylan Pagillo · 2026</div>
+    <div>Built fast. Iterating in public.</div>
+  </footer>
+</div>
+
+</body>
+</html>
