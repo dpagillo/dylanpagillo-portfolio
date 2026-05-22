@@ -13,3 +13,4 @@ Open `index.html` directly in any browser.
 - `index.html` — the whole site
 - `images/` — case study visuals (added as they're ready)
 - `resume.pdf` — downloadable resume
+# dylanpagillo-portfolio
