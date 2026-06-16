@@ -30,11 +30,10 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-.serif { font-family: "Iowan Old Style", "Charter", "Georgia", "Cambria", serif; }
 
+.serif { font-family: "Iowan Old Style", "Charter", "Georgia", "Cambria", serif; }
 a { color: var(--ink); text-decoration: none; border-bottom: 1px solid var(--line); transition: border-color 0.15s, color 0.15s; }
 a:hover { color: var(--accent); border-color: var(--accent); }
-
 .container { max-width: var(--max); margin: 0 auto; padding: 0 24px; }
 .container-wide { max-width: var(--max-wide); margin: 0 auto; padding: 0 24px; }
 
@@ -118,6 +117,7 @@ section { margin-bottom: 96px; }
   padding: 36px 0;
 }
 .case:first-of-type { border-top: none; padding-top: 8px; }
+
 .case-image {
   margin: 0 0 24px;
   border-radius: 10px;
@@ -145,6 +145,51 @@ section { margin-bottom: 96px; }
   border-radius: 4px;
   letter-spacing: 0.02em;
 }
+
+/* Phone screenshot trio layout */
+.case-image-trio {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin: 0 0 24px;
+}
+.case-image-trio .phone-frame {
+  border-radius: 28px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  background: var(--surface);
+  aspect-ratio: 9/19.5;
+  position: relative;
+}
+.case-image-trio .phone-frame img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+}
+.case-image-trio .phone-frame .caption {
+  position: absolute;
+  bottom: 8px;
+  left: 8px;
+  right: 8px;
+  background: rgba(22, 22, 19, 0.72);
+  color: #fff;
+  font-size: 10px;
+  padding: 3px 7px;
+  border-radius: 4px;
+  letter-spacing: 0.02em;
+  text-align: center;
+}
+@media (max-width: 600px) {
+  .case-image-trio {
+    grid-template-columns: 1fr;
+    max-width: 280px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
 .case-meta {
   display: flex;
   gap: 16px;
@@ -243,75 +288,149 @@ footer {
 
   <header class="hero">
     <h1>Designer and engineer building <em>products that feel inevitable</em> — across the full stack, from research to React.</h1>
-    <p>Five years at Cisco leading UX for internal cloud platforms used by thousands of engineers across hundreds of business applications. Comfortable in Figma and in code, in research and in production.</p>
-    <div class="status"><span class="dot"></span> Open to Design Engineer & Front-end Engineer roles</div>
+    <p>Five years at Cisco leading UX for enterprise cloud platforms. Now working at the intersection of design, engineering, and AI — comfortable in Figma and in the codebase, in research and in production.</p>
+    <div class="status"><span class="dot"></span> Open to design-primary roles at small and mid-size teams</div>
   </header>
 
   <section id="work">
     <div class="section-label">Selected work</div>
 
     <!-- =============================================== -->
-    <!-- CASE STUDY 1 — RunOn Managed Service (Cisco) -->
+    <!-- CASE STUDY 1 — JourneyUp                       -->
     <!-- =============================================== -->
     <article class="case">
+
+      <!-- IMAGE TRIO: drop in clean screenshots when ready, then uncomment
+      <div class="case-image-trio">
+        <div class="phone-frame">
+          <img src="images/journeyup-home.png" alt="JourneyUp home screen — Where can I take you?">
+          <div class="caption">Home — empty state</div>
+        </div>
+        <div class="phone-frame">
+          <img src="images/journeyup-route.png" alt="JourneyUp route view with stops and hotel card">
+          <div class="caption">Route view</div>
+        </div>
+        <div class="phone-frame">
+          <img src="images/journeyup-poi.png" alt="JourneyUp point of interest detail — Grand Canyon">
+          <div class="caption">Stop detail</div>
+        </div>
+      </div>
+      -->
+
+      <div class="case-meta">
+        <span>JourneyUp · 2025–Present</span>
+        <span>Design + Front-end</span>
+        <span>AI / Travel · Pre-launch</span>
+      </div>
+
+      <h3>JourneyUp — a voice-first travel concierge that guides instead of overwhelms</h3>
+
+      <div class="case-body">
+        <p><strong>What it is.</strong> JourneyUp is a voice-first AI travel app: you say where you want to go, and it builds a personalized route — stops, hotels, points of interest — without making you do the organizing work. I'm the designer and one of the front-end engineers. There's no separate handoff process; I design directly in the React codebase, making decisions at the component level and the copy level in the same workflow. The product is currently in investor demo stage.</p>
+
+        <p><strong>The central design problem.</strong> A travel planning tool lives or dies on one question: how much do you hand back to the user? Show them every option and you've rebuilt the problem they came to solve. Show them nothing and you haven't earned their trust. My position was guide-first: the app makes a call, shows one route, and makes changing it feel like adjusting a plan — not overriding a system.</p>
+
+        <p><strong>Decision: route view.</strong> The itinerary shows stops in the order we recommend. Users don't choose from alternatives — they get a route. But two escape hatches are always available: drag to reorder any stop by touch, or tell the app to move it by voice. The same action is available both ways. For a voice-first product, nothing critical should be touch-only.</p>
+
+        <p><strong>Decision: hotel carousel.</strong> Accommodation options appear inline as a swipeable card carousel inside the route list, not on a separate screen. The intent was to keep the user inside the planning flow — browsing hotels shouldn't feel like a detour.</p>
+
+        <p><strong>Decision: onboarding scope.</strong> Early versions collected demographic data — age, gender — that the AI wasn't actually using. I cut it. What stayed: vehicle make, model, and year, which directly improves route accuracy for range, charging stops, and road type. The rule became: only ask what earns its place.</p>
+
+        <p><strong>Process.</strong> I use Claude Code as a design collaborator — describing what feels wrong, getting analysis, making the call, pushing the PR. Design decisions happen at the token level (the full theme system), the component level (information hierarchy on hotel cards, mic toggle accessibility), and the copy level ("Ready when you are" instead of "idle"). It's a tighter loop than any Figma-first process I've worked in.</p>
+      </div>
+
+      <div class="case-footer">
+        <span class="key">Stack:</span> React · TypeScript · Figma &nbsp;·&nbsp; <span class="key">Role:</span> Designer + front-end engineer · design system · no handoff
+      </div>
+
+    </article>
+
+    <!-- =============================================== -->
+    <!-- CASE STUDY 2 — Cisco (RMS + CPP)               -->
+    <!-- =============================================== -->
+    <article class="case">
+
       <!-- IMAGE SLOT: uncomment and update filename when you have a visual (abstracted/redrawn, not real Cisco UI)
       <div class="case-image">
         <img src="images/cisco-cloud.png" alt="Cisco cloud platforms — abstracted system view">
         <div class="caption">Abstracted system view · redrawn for portfolio</div>
       </div>
       -->
+
       <div class="case-meta">
         <span>Cisco · 2022–2026</span>
         <span>Lead UX + Full-stack</span>
         <span>Enterprise Cloud</span>
       </div>
+
       <h3>Cisco's internal cloud platforms — leading UX across maturity stages</h3>
+
       <div class="case-body">
         <p><strong>Context.</strong> I was the lead designer on two of Cisco's internal cloud-management platforms: <strong>RunOn Managed Service (RMS)</strong>, a mature platform broadly deployed across the company, and <strong>Control Plane Platform (CPP)</strong>, its newer, faster-growing counterpart. My work spanned research, Figma prototyping, React implementation, and ongoing support — partnered with PMs, engineers, and two designers I guided, including collaboration with design and engineering counterparts in India and China.</p>
+
         <p><strong>Scale.</strong> RMS manages tens of thousands of compute and storage resources (VMs, storage, AWS accounts) across hundreds of business applications, handling tens of thousands of resource requests from thousands of distinct users every quarter. CPP is earlier in its lifecycle but already serving thousands of quarterly users — a signal it's finding adoption fast.</p>
+
         <p><strong>The design problem I cared about most.</strong> Two products in the same domain at very different maturity stages. RMS users had deep muscle memory and high tolerance for complexity; CPP users were new and needed onboarding that didn't bury them. The job was to maintain enough consistency that the platforms felt like one ecosystem, while letting each speak to its own audience.</p>
+
         <p><strong>A representative project: the Platform Selection experience.</strong> The pivotal feature for both products is where users — software engineers and system administrators — choose the underlying cloud platform for their infrastructure (AWS, GCP, and others). It demanded a careful balance between simplicity and comprehensiveness: enough information for an informed decision, not so much that users got buried. I designed a card-based grid layout where each card carried the essentials — provider logo, tags, a short description, and a link to documentation — and nothing more. The grid prevents information overload and supports quick scanning, while the per-card detail link gives power users a deeper path when they need it.</p>
+
         <p><strong>Outcome.</strong> Usability testing affirmed the design's intuitiveness and efficiency, and the pattern became part of the platforms' broader design language. More broadly, both products continue to serve thousands of engineers across Cisco — and the design system I helped shape is the substrate they're built on.</p>
       </div>
+
       <div class="case-footer">
         <span class="key">Stack:</span> React · Go · Python · Figma &nbsp;·&nbsp; <span class="key">Role:</span> Lead designer across both products · guided 2 designers · cross-functional with PMs, engineering, and global teams · shipped production code
       </div>
+
     </article>
 
     <!-- =============================================== -->
-    <!-- CASE STUDY 2 — CData B2B Website -->
+    <!-- CASE STUDY 3 — CData B2B Website               -->
     <!-- =============================================== -->
     <article class="case">
+
       <!-- IMAGE SLOT: uncomment when you drop in the CData screenshot
       <div class="case-image">
         <img src="images/cdata.png" alt="CData Software website — designed and built by Dylan Pagillo">
       </div>
       -->
+
       <div class="case-meta">
         <span>CData Software · 2019–2021</span>
         <span>Front-end + UI Design</span>
         <span>B2B SaaS</span>
       </div>
+
       <h3>CData — making a catalog of 100+ data sources legible</h3>
+
       <div class="case-body">
         <p><strong>Context.</strong> CData sells a portfolio of enterprise data connectivity products. I owned design and front-end implementation for much of the marketing site and worked directly with the product team on UI for multiple connectivity platform applications.</p>
+
         <p><strong>Problem.</strong> CData's "Drivers" surface had to present over 100 diverse data sources — social platforms, database systems, file formats — across platforms like ADO.net. The default approach (long lists, undifferentiated entries) buried users in choice and forced cognitive load onto people who just wanted to find the connector they needed.</p>
+
         <p><strong>Approach.</strong> I designed a user-centric grid layout that displayed each data source with just enough detail to recognize it, paired with interactive "pill" filters for categorization. Filter interactions were powered by relational database updates on the back end and smoothed in the front end with lightweight JavaScript animations, so the experience felt responsive without being noisy. The whole pattern was modular by design — easy for the team to extend as new connectors were added.</p>
+
         <p><strong>Outcome.</strong> The design became a cornerstone of the CData site and is still in use, influencing purchasing decisions by making the catalog navigable rather than overwhelming. It's the kind of work I'm proudest of: a small interface that quietly does a lot of work for the user.</p>
       </div>
+
       <div class="case-footer">
         <span class="key">Stack:</span> HTML5 · CSS3 · JavaScript · SASS · Bootstrap &nbsp;·&nbsp; <span class="key">Role:</span> Designed and coded most of the site
       </div>
+
     </article>
 
   </section>
 
   <section id="about" class="about">
     <div class="section-label">About</div>
-    <p>I work at the boundary between design and engineering. At Cisco I led UX for enterprise products, but I was also in the codebase every week — building components in React, shipping back-end fixes in Go and Python, integrating Figma → front end → back end into one continuous workflow.</p>
+
+    <p>I'm a designer who sits in engineering pods — and an engineer who thinks like a designer. That means I can own the UX end-to-end and stay in the codebase through implementation, without the friction of a handoff. At Cisco I led design for enterprise cloud platforms used by thousands of engineers, while shipping production code in React, Go, and Python every week. At JourneyUp I'm doing the same thing at startup speed.</p>
+
+    <p>I'm drawn to small teams where design quality and engineering quality are both taken seriously — companies where the person who defines the experience can also build it. Locally-based or remote roles at product-focused companies of any size.</p>
+
     <p>My path into this work started with music. Years of playing taught me the things that show up in good interfaces too — patience, precision, taste, and the willingness to keep rewriting until it lands. I picked up the technical fundamentals through a B.S. in Information Technology at SUNY Empire State and an M.S. in Information Design & Technology at SUNY Polytechnic, and I've been refining the craft on real products ever since.</p>
-    <p>I'm interested in roles that don't force me to pick a lane — Design Engineer roles at companies like Linear, Vercel, Stripe, Ramp, and Retool, or senior front-end roles at teams where design quality matters as much as code quality.</p>
-    <p>Outside of work: guitar, comics, and time with family. I've also been a volunteer front-end developer with <a href="https://www.techforcampaigns.org/" target="_blank" rel="noopener">Tech for Campaigns</a> since 2020, building websites for political campaigns.</p>
+
+    <p>Outside of work: guitar, comics, and time with family. I've also been a volunteer front-end developer with <a href="https://www.techforcampaigns.org/" target="_blank" rel="noopener">Tech for Campaigns</a> since 2020, and in 2024 I spoke on neurodiversity and AI at a Cisco Design conference.</p>
+
     <div class="skills">
       <span class="skill">React</span>
       <span class="skill">Angular</span>
